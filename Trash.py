@@ -1,34 +1,45 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
-x = np.random.rand(100) # creates a list of 100 random numbers between 0-1
-y = 3 * x + 2 + np.random.randn(100) * 0.1 # creates a list y which is (3x + 2) + random fuzziness
+a = np.array([1, 2, 3])
+b = np.array([4, 5, 6])
+c = np.array([7, 8, 9])
 
-w, b = 0.5, 0.5 # create weight and bias
-learning_rate = 0.1
+d = np.array([1, 2, 3])
+e = np.array([4, 5, 6])
+f = np.array([7, 8, 9])
 
-y_pred = w * x + b # list of all predictions
-loss = (y_pred - y) ** 2
+g = np.random.randn(3, 2)
+h = np.zeros(2)
 
-print(loss)
+#print(h)
 
-#print("Step:", step, "Loss:", loss, "W:", w, "b:", b)
-    #what does loss[0] want to change?
-    #what does loss[1] want to change?
-    #what does loss[n] want to change?
-    #-> calculate the average?
-    #
-    #what is dloss/dw?
-    #aka how much does w affect loss.
-    #a change in w -> a change in y_pred -> change in loss.
-    #dy_pred/dw * dloss/dy_pred = dloss/dw.
-    #
-    #dloss/dy_pred = 2(dy_pred - y)
-    #dy_pred/dw = x !!!
-    #
-    #what is dloss/db?
-    #aka how much does w affect loss.
-    #a change in b -> a change in y_pred -> change in loss.
-    #dy_pred/db * dloss/dy_pred = dloss/db.
-    #
-    #dloss/dy_pred = 2(dy_pred - y)
-    #dy_pred/db = 1 !!!
+#print(g)
+#print(g[0])
+
+vstack1 = np.vstack((a, b, c))
+vstack2 = np.vstack((d, e, f))
+
+#print(vstack1)
+#print(vstack2)
+
+#print(vstack1)
+#print(vstack2)
+
+lr = 0.1
+w = np.ones(2)
+
+print("w")
+print((lr * w).shape)
+
+matrix1 = np.ones((200,))
+matrix2 = np.ones((200,2))
+print(matrix2)
+print(w)
+print("shapes")
+print(matrix1.shape)
+print(matrix2.shape)
+dw = (matrix2.T @ matrix1) - matrix1.T
+print(dw.shape)
+w -= lr * dw
+print(w.shape)
